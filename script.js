@@ -1,27 +1,24 @@
-document.addEventListener('DOMContentLoaded', function() {
-    // Set current year in footer
-    document.getElementById('year').textContent = new Date().getFullYear();
-    
-    // Add animation to menu sections when they come into view
-    const sections = document.querySelectorAll('.menu-section');
-    
-    const observerOptions = {
-        threshold: 0.1
-    };
+document.addEventListener('DOMContentLoaded', function () {
+  // Set current year in footer
+  document.getElementById('year').textContent = new Date().getFullYear();
 
-    const observer = new IntersectionObserver(function(entries, observer) {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = 1;
-                entry.target.style.transform = 'translateY(0)';
-            }
-        });
-    }, observerOptions);
+  // Show corresponding section on bubble click
+  const bubbles = document.querySelectorAll('.bubble');
+  const sections = document.querySelectorAll('.menu-section');
 
-    sections.forEach(section => {
-        section.style.opacity = 0;
-        section.style.transform = 'translateY(20px)';
-        section.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-        observer.observe(section);
+  bubbles.forEach(bubble => {
+    bubble.addEventListener('click', () => {
+      const targetId = bubble.getAttribute('data-target');
+
+      // Hide all sections
+      sections.forEach(section => section.classList.add('hidden'));
+
+      // Show the selected one
+      document.getElementById(targetId).classList.remove('hidden');
+      document.getElementById(targetId).scrollIntoView({ behavior: 'smooth' });
+      let isUrdu = true;
+
+
     });
+  });
 });
