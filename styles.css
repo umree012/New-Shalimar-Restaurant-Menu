@@ -1,178 +1,240 @@
-/* General Styles */
 body {
-    font-family: 'Helvetica Neue ', 'Arial', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f9f5f0;
-    color: #333;
-    line-height: 1.6;
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #2d2d2d;
+  direction: rtl;
+  color: #333;
+}
+html, body {
+  height: 100%;
+  margin: 0;
 }
 
-/* Header Styles */
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex: 1;
+}
+
+
 header {
-    background-color: #8b0000;
-    color: white;
-    text-align: center;
-    padding: 1.5rem 0;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  background-color: #000000;
+  color: white;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.header-content {
+  width: 100%;
+  max-width: 1000px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .restaurant-name {
-    font-size: 2.2rem;
-    font-weight: bold;
-    margin-bottom: 0.5rem;
+  font-size: 36px;
+  font-weight: bold;
+  text-align: left;
 }
 
-.tagline {
-    font-size: 1.2rem;
-    font-style: italic;
-    font-weight: bold;
+.tag-line {
+  font-size: 18px;
+  color: #ffd700;
+  margin-top: 5px;
+  text-align: left;
 }
 
-/* Main Content Styles */
-main {
-    padding: 1rem;
-    max-width: 100%;
-    margin: 0 auto;
+.lang-toggle {
+  background-color: #fff;
+  color: #000;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
-.menu-title {
+.lang-toggle:hover {
+  background-color: #ffe6e6;
+}
+
+@media (max-width: 600px) {
+  .header-content {
+    flex-direction: column;
+    align-items: center;
     text-align: center;
-    color: #8b0000;
-    margin: 1.5rem 0;
-    font-size: 1.8rem;
+  }
+
+  .header-text {
+    align-items: center;
+  }
+
+  .lang-toggle {
+    margin-top: 10px;
+  }
+}
+.hero-image {
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+}
+
+
+
+
+.bubble-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.bubble {
+  width: 150px;
+  height: 150px;
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  color: white;
+  font-size: 2rem;
+  font-weight: bold;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  animation: float 6s infinite ease-in-out;
+  transition: transform 0.3s, background 0.3s;
+}
+
+.bubble:hover {
+  transform: scale(1.1);
+  background: linear-gradient(135deg, #00c9ff, #92fe9d);
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
 }
 
 .menu-section {
-    margin-bottom: 2rem;
-    background-color: white;
-    border-radius: 8px;
-    padding: 1rem;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    
+  background: rgb(255, 255, 255);
+  margin: 1rem;
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
 
 .menu-section h2 {
-    color: #8b0000;
-    border-bottom: 2px solid #f0f0f0;
-    padding-bottom: 0.5rem;
-    margin-top: 0;
-    font-size: 1.5rem;
-}
-
-.menu-table-container {
-    overflow-x: auto;
+  font-size: 1.2rem;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 0.5rem;
+  margin-top: 0;
+  color: #2d3436;
 }
 
 .menu-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 1rem;
-    font-size: 1rem;
-    font-weight: bold;
-}
-
-.menu-table th {
-    background-color: #8b0000;
-    color: white;
-    padding: 0.8rem;
-    text-align: right;
-    font-weight: bold;
-    border-bottom: 2px solid #f0f0f0;
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
 }
 
 .menu-table td {
-    padding: 0.8rem;
-    border-bottom: 1px solid #f0f0f0;
-    text-align: right;
-    font-weight: bold;
+  padding: 0.8rem;
+  border-bottom: 1px solid #eee;
+  font-weight: bold;
+  text-align: right;
 }
 
-.menu-table tr:nth-child(even) {
-    background-color: #f9f9f9;
-    font-weight: bold;
+.hidden {
+  display: none;
 }
 
-/* Notes Section */
-.notes {
-    background-color: #fff8e1;
-    padding: 1rem;
-    border-radius: 8px;
-    margin: 2rem 0;
-    border-right: 4px solid #ffc107;
-}
-
-.notes h3 {
-    margin-top: 0;
-    color: #8b0000;
-    font-size: 1.3rem;
-}
-
-.notes p {
-    margin-bottom: 0.5rem;
-    padding-right: 0.5rem;
-}
-
-/* Footer Styles */
 footer {
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 1.5rem 1rem;
-    margin-top: 2rem;
+  background-color: #000000;
+  color: #fff;
+  padding: 30px 15px;
+  font-size: 14px;
 }
 
-.contact-info h3 {
-    margin-top: 0;
-    color: #ffc107;
-    font-size: 1.3rem;
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1100px;
+  margin: 0 auto;
+  gap: 30px;
 }
 
-.contact-info p {
-    margin: 0.5rem 0;
+.footer-column {
+  flex: 1 1 250px;
+  min-width: 220px;
 }
 
-.icon {
-    margin-left: 0.5rem;
+.footer-column h3 {
+  color: #ffd700;
+  margin-bottom: 10px;
+  font-size: 18px;
+  border-bottom: 1px solid #444;
+  padding-bottom: 5px;
 }
 
-.copyright {
-    margin-top: 1rem;
-    font-size: 0.9rem;
-    color: #ccc;
+.footer-column p,
+.footer-column a {
+  color: #ccc;
+  text-decoration: none;
+  margin-bottom: 8px;
+  display: block;
+  transition: color 0.2s;
 }
 
-/* Responsive Design */
+.footer-column a:hover {
+  color: #fff;
+}
+
+.social-links a {
+  margin-right: 10px;
+  display: inline-block;
+}
+
+.developer-info {
+  text-align: center;
+  margin-top: 30px;
+  border-top: 1px solid #444;
+  padding-top: 15px;
+  font-size: 13px;
+  color: #aaa;
+}
+
 @media (max-width: 600px) {
-    .restaurant-name {
-        font-size: 1.8rem;
-    }
-    
-    .tagline {
-        font-size: 1rem;
-    }
-    
-    .menu-title {
-        font-size: 1.5rem;
-    }
-    
-    .menu-section h2 {
-        font-size: 1.3rem;
-    }
-    
-    .menu-table th, 
-    .menu-table td {
-        padding: 0.6rem;
-        font-size: 0.9rem;
-        font-weight: bold;
-    }
-    
-    .notes h3 {
-        font-size: 1.1rem;
-    }
-    
-    .contact-info h3 {
-        font-size: 1.1rem;
-    }
-    
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-column {
+    margin-bottom: 20px;
+  }
+
+  .social-links a {
+    display: inline-block;
+    margin: 5px;
+  }
 }
+
